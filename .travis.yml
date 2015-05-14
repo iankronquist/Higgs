@@ -2,14 +2,19 @@
 language: d
 
 # build a test binary and run tests
-script: make -C source test
+script:
+  - make -C source test
+  - make install
+  - git clone https://github.com/tc39/test262
+  - cd test262
+  - ./tools/packaging/test262.py --command 'higgs'
 
 # branch settings
-branches:
- # only run for these branches
- only:
-  - master
+#branches:
+# # only run for these branches
+# only:
+#  - master
 
 # notify the irc channel
-notifications:
-  irc: "chat.freenode.net#higgsjs"
+#notifications:
+#  irc: "chat.freenode.net#higgsjs"
