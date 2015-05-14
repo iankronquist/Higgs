@@ -5,7 +5,7 @@ language: d
 script:
   - make -C source test
   - export DC=$(which dmd)
-  - make -C source install DC=$DC
+  - sudo make -C source install DC=$DC
   - git clone https://github.com/tc39/test262
   - cd test262
   - ./tools/packaging/test262.py --command 'higgs'
